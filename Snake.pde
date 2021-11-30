@@ -1,16 +1,19 @@
-public class Snake {
-  public PVector pos;
-  public final int SIZE = 20;
-  public color c;
+  public class Snake {
+  public PVector pos, vel;
+  public int speed = 5;
+  public final int SIZE = 100;
+  public final color COLOR = color(200, 30, 200);
   public boolean active = true;
-  
-  public Snake(int x, int y) {
-    pos = new PVector(x,y);
-     c = color(100,100,100);
-}
 
-public void show() {
-   fill(c);
-   square(pos.x,pos.y,SIZE);
+  public Snake(int x, int y) {
+    pos = new PVector(x, y);
+  }
+
+  public void show() {
+    fill(COLOR);
+    square(pos.x, pos.y, SIZE);
+  }
+    public void move() {
+    vel = PVector.random2D().mult(speed);
 }
-}
+  }
