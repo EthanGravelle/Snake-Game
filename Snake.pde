@@ -6,6 +6,7 @@ public class Snake {
   public final color COLOR = color(200, 30, 200);
   public boolean active = true;
 
+
   public Snake(int x, int y) {
    pos = new PVector(x,y);
    
@@ -15,28 +16,24 @@ public class Snake {
     fill(COLOR);
     rect(pos.x, pos.y, length, width);
   }
-  
-  public void move() {
-    vel = PVector.random2D().mult(speed);
-  }
-}
 
-public void moveUp() {
-    y -= speed;
+  public void moveUp() {
+    pos.y -= speed;
   }
   
   public void moveDown() {
-    y += speed;
+    pos.y += speed;
   }
   
   public void moveLeft() {
-    x -= speed;
+    pos.x -= speed;
   }
   
   public void moveRight() {
-    x += speed;
+    pos.x += speed;
   }
-  
+}
+
+
 
   
- 

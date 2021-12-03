@@ -1,6 +1,6 @@
 public class Food {
   public PVector pos;
-  public final int SIZE = 50;
+  public final int SIZE = 25;
   public final color COLOR = color(0,200,30);
   public boolean active = true;
   
