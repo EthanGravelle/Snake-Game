@@ -7,9 +7,10 @@ public class Snake {
   public boolean active = true;
 
 
+
   public Snake(int x, int y) {
-   pos = new PVector(x,y);
-   
+    pos = new PVector(x, y);
+    this.pos = pos;
   }
 
   public void show() {
@@ -20,20 +21,26 @@ public class Snake {
   public void moveUp() {
     pos.y -= speed;
   }
-  
+
   public void moveDown() {
     pos.y += speed;
   }
-  
+
   public void moveLeft() {
     pos.x -= speed;
   }
-  
+
   public void moveRight() {
     pos.x += speed;
   }
+
+
+  public void collides(Food f) {
+    if (this.pos.x >= f.pos.x
+      && this.pos.x <= f.pos.x + f.SIZE
+      && this.pos.y >= f.pos.y
+      && this.pos.y <= f.pos.y + f.SIZE) {
+      f.active = false;
+    }
+  }
 }
-
-
-
-  

@@ -7,12 +7,13 @@ public void setup() {
 
 public void draw() {
   background(220);
-
   snake.active = true;
   snake.show();
   if (snake.active)
   food.active = true;
   food.show();
+    if (f.active)
+   snake.collides(f) = true;
 }
 
 public void spawnFood() {
