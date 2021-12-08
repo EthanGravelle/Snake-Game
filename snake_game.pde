@@ -12,8 +12,8 @@ public void draw() {
   if (snake.active)
   food.active = true;
   food.show();
-    if (f.active)
-   snake.collides(f) = true;
+  if (f.active)
+    snake.collides(f);
 }
 
 public void spawnFood() {
