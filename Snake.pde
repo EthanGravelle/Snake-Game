@@ -1,6 +1,6 @@
 public class Snake {
   public PVector pos, vel;
-  public int speed = 5;
+  public final int speed = 10;
   public int length = 100;
   public int width = 25;
   public final color COLOR = color(200, 30, 200);
@@ -35,10 +35,11 @@ public class Snake {
 
 
   public void collides(Food f) {
-    if (this.pos.x >= f.pos.x
-      && this.pos.x <= f.pos.x + f.SIZE
-      && this.pos.y >= f.pos.y
-      && this.pos.y <= f.pos.y + f.SIZE)
+    double dist = PVector.sub(this.pos, f.pos).mag();
+    if (dist <= this.length+this.width / 2 + f.SIZE / 2) { //<>//
       f.active = false;
+      length++;
+      
     }
+  }
 }

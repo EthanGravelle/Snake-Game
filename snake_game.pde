@@ -9,30 +9,30 @@ public void draw() {
   background(220);
   snake.active = true;
   snake.show();
-  if (snake.active)
-  food.active = true;
-  food.show();
-  if (f.active)
-    snake.collides(f);
-}
+  if (food.active == true) {
+    food.show();
 
-public void spawnFood() {
-  for (int i = 0; i < food.SIZE; i++) {
-    food = new Food((int)(Math.random()*400 + 100), (int)(Math.random()*350 + 100));
+    snake.collides(food);
   }
 }
 
-public void keyPressed() {
-  if (key == 'd') {
-    snake.moveRight();
+  public void spawnFood() {
+    for (int i = 0; i < food.SIZE; i++) {
+      food = new Food((int)(Math.random()*400 + 100), (int)(Math.random()*350 + 100));
+    }
   }
-  if (key == 'a') {
-    snake.moveLeft();
+
+  public void keyPressed() {
+    if (key == 'd') {
+      snake.moveRight();
+    }
+    if (key == 'a') {
+      snake.moveLeft();
+    }
+    if (key == 'w') {
+      snake.moveUp();
+    }
+    if (key == 's') {
+      snake.moveDown();
+    }
   }
-  if (key == 'w') {
-    snake.moveUp();
-  }
-  if (key == 's') {
-    snake.moveDown();
-  }
-}
