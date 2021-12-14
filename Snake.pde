@@ -1,9 +1,9 @@
-public class Snake {
+public class Snake { //<>//
   public PVector pos, vel;
-  public final int speed = 10;
+  public final int speed = 10; //snake movement speed
   public int length = 100;
   public int width = 25;
-  public final color COLOR = color(200, 30, 200);
+  public final color COLOR = color(43,251,14);
   public boolean active = true;
 
 
@@ -14,7 +14,7 @@ public class Snake {
 
   public void show() {
     fill(COLOR);
-    rect(pos.x, pos.y, length, width);
+    rect(pos.x, pos.y, length, width); //the snake block
   }
 
   public void moveUp() {
@@ -34,12 +34,14 @@ public class Snake {
   }
 
 
-  public void collides(Food f) {
+  public void collides(Food f) { //This collision method makes it so when the snake and the food make contact, the food becomes inactive
     double dist = PVector.sub(this.pos, f.pos).mag();
-    if (dist <= this.length+this.width / 2 + f.SIZE / 2) { //<>//
+    if (dist <= this.length+this.width / 2 + f.SIZE / 2) {
       f.active = false;
-      length++;
-      
+      this.length += 10; //length will increase by 10 every time the collision happens
+      if (this.active == true) { //* This if statement makes sure that new food is active
+        spawnFood();             //* as long as the collision method is active
+      }
     }
   }
 }
